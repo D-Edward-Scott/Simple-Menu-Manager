@@ -15,6 +15,8 @@ OPTIONS = [
 
 RETURN_MESSAGE = "exit"
 
+MENU_TYPE = "default"
+
 
 def standard_menu(message, options, return_message):
     while True:
@@ -66,7 +68,7 @@ def curses_menu(message, options, return_message):
                 stdscr.addstr(i, 0, line[:max_x-1])
 
             # Print options. Keep simple: show all if fits, otherwise allow basic scroll
-            start_y = title_h
+            start_y = title_height
             visible_height = max_y - start_y
             items = [f"{i+1}. {opt}" for i,
                      opt in enumerate(options)] + ["0. " + return_message]
@@ -111,7 +113,7 @@ def curses_menu(message, options, return_message):
                 return current + 1
             elif key in (27, ord('q')):  # Esc or q -> return 0
                 return 0
-
+    
     # Try to initialize curses; if it fails, fall back to standard_menu
     try:
         return curses.wrapper(_menu)
@@ -137,4 +139,8 @@ def menu_handler(message, options, return_message, menu_type="default"):
         return "Invalid menu type"
 
 
-print(menu_handler(MESSAGE, OPTIONS, RETURN_MESSAGE))
+print(curses_menu(
+    MESSAGE,
+    OPTIONS, 
+    RETURN_MESSAGE,
+    MENU_TYPE))
