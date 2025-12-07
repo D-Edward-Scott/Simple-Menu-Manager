@@ -139,8 +139,9 @@ def menu_handler(message, options, return_message, menu_type="default"):
         return "Invalid menu type"
 
 
-print(curses_menu(
-    MESSAGE,
-    OPTIONS, 
-    RETURN_MESSAGE,
-    MENU_TYPE))
+if __name__ == "__main__":
+    print(menu_handler(
+        MESSAGE,
+        OPTIONS, 
+        RETURN_MESSAGE,
+        MENU_TYPE))
