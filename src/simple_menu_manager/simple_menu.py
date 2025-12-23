@@ -13,7 +13,7 @@ OPTIONS = [
     "Option 10"
 ]
 
-RETURN_MESSAGE = "exit"
+RETURN_MESSAGE = "Exit"
 
 MENU_TYPE = "default"
 
@@ -122,7 +122,7 @@ def curses_menu(message, options, return_message):
         return standard_menu(message, options, return_message)
 
 
-def menu_handler(message, options, return_message, menu_type="default"):
+def menu_handler(message, options, return_message="Exit", menu_type="default"):
     # TODO add length checks to create tiers of menus, add checks for curses and select menu type
     if menu_type.lower() == "default" or menu_type.lower() == "curses":
         try:

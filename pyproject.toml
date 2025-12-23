@@ -2,12 +2,12 @@
 requires = ["hatchling >= 1.26"]
 build-backend = "hatchling.build"
 [project]
-name = "simpe_menu"
-version = "0.0.1"
+name = "simple_menu_manager"
+version = "0.0.2"
 authors = [
   { name="D. Edward Scott", email="d.edward.scott@outlook.com" },
 ]
-description = "A small example package"
+description = "A simple menu manager package."
 readme = "README.md"
 requires-python = ">=3.9"
 classifiers = [
