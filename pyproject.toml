@@ -3,7 +3,7 @@ requires = ["hatchling >= 1.26"]
 build-backend = "hatchling.build"
 [project]
 name = "simple_menu_manager"
-version = "0.0.2"
+version = "0.0.3"
 authors = [
   { name="D. Edward Scott", email="d.edward.scott@outlook.com" },
 ]

@@ -1,4 +1,4 @@
-# Python Simple Menu Manager V. 0.0.2
+# Python Simple Menu Manager V. 0.0.3
 
 
 ## Purpose
@@ -38,9 +38,11 @@ simple_menu.menu_handler(
         "Option 9",
         "Option 10"
     ],
-    return_message='Exit',
-    menu_type='default') 
+    return_message="Exit",
+    menu_type="default",
+    verbose=False) 
 ```
+
 
 - ___message___ - The message that appears above the menu, such as "Choose an option:".
 - ___options___ - The selectable options, associated numbers added automatically.
@@ -49,4 +51,4 @@ simple_menu.menu_handler(
     - "_default_" - Auto selects based on what options are avaible for imoprt.
     - "_curses_" - Leverages curses for an interactive menu.
     - "_standard_" - Uses only standard parts of the Python library.
-
+- ___verbose___ - Option to allow for more verbose CLI printing. __(Optional, defaults to "False")__

@@ -17,6 +17,8 @@ RETURN_MESSAGE = "Exit"
 
 MENU_TYPE = "default"
 
+VERBOSE = True
+
 
 def standard_menu(message, options, return_message):
     while True:
@@ -122,7 +124,7 @@ def curses_menu(message, options, return_message):
         return standard_menu(message, options, return_message)
 
 
-def menu_handler(message, options, return_message="Exit", menu_type="default"):
+def menu_handler(message, options, return_message="Exit", menu_type="default", verbose=False):
     # TODO add length checks to create tiers of menus, add checks for curses and select menu type
     if menu_type.lower() == "default" or menu_type.lower() == "curses":
         try:
@@ -134,7 +136,19 @@ def menu_handler(message, options, return_message="Exit", menu_type="default"):
     if menu_type == "standard":
         return standard_menu(message, options, return_message)
     elif menu_type == "curses":
-        return curses_menu(message, options, return_message)
+        menu_selection = curses_menu(message, options, return_message)
+        if verbose == True:
+            option_number = 1
+            print(message)
+            for option in options:
+                print("    " + str(option_number) + ". " + option)
+                option_number += 1
+            print(f"    0. {return_message}")
+            
+            print((f"""Please make a selection (0 - {option_number - 1})
+        > {menu_selection}"""))
+
+        return menu_selection
     else:
         return "Invalid menu type"
 
@@ -144,4 +158,5 @@ if __name__ == "__main__":
         MESSAGE,
         OPTIONS, 
         RETURN_MESSAGE,
-        MENU_TYPE))
+        MENU_TYPE,
+        VERBOSE))
